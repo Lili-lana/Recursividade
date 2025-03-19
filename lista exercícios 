@@ -1,0 +1,132 @@
+1-
+#include <stdio.h>
+
+int fatorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    return n * fatorial(n - 1); 
+}
+
+int main() {
+    int num;
+    
+    printf("Digite um número inteiro não negativo: ");
+    scanf("%d", &num);
+
+    if (num < 0) {
+        printf("Erro: O número deve ser não negativo.\n");
+    } else {
+        printf("%d! = %d\n", num, fatorial(num));
+    }
+
+    return 0;
+}
+
+2- 
+#include <stdio.h>
+
+int soma(int n) {
+    if (n == 1) {
+        return 1;
+    }
+    return n + soma(n - 1);
+}
+
+int main() {
+    int num = 4;
+
+    printf("A soma dos primeiros %d números naturais é: %d\n", num, soma(num));
+    
+    return 0;
+}
+
+3-
+#include <stdio.h>
+
+int fibonacci(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int num = 6;
+    printf("O %dº termo da sequência de Fibonacci é: %d\n", num, fibonacci(num));
+    return 0;
+}
+
+4-
+#include <stdio.h>
+
+int potencia(int x, int n) {
+    if (n == 0)
+        return 1;
+    return x * potencia(x, n - 1);
+}
+
+int main() {
+    int x = 2, n = 5;
+    printf("%d^%d = %d\n", x, n, potencia(x, n));
+    return 0;
+}
+
+5- 
+#include <stdio.h>
+
+void contagem_regressiva(int n) {
+    if (n < 0)
+        return;
+    printf("%d ", n);
+    contagem_regressiva(n - 1);
+}
+
+int main() {
+    int num = 3;
+    contagem_regressiva(num);
+    printf("\n");
+    return 0;
+}
+
+6- 
+#include <stdio.h>
+
+int soma_digitos(int n) {
+    if (n == 0)
+        return 0;
+    return n % 10 + soma_digitos(n / 10);
+}
+
+int main() {
+    int num = 1234;
+    printf("A soma dos dígitos de %d é: %d\n", num, soma_digitos(num));
+    return 0;
+}
+
+7-
+#include <stdio.h>
+#include <string.h>
+
+void inverter_string(char str[], int inicio, int fim) {
+    if (inicio >= fim) 
+        return;
+    
+    char temp = str[inicio];
+    str[inicio] = str[fim];
+    str[fim] = temp;
+
+    inverter_string(str, inicio + 1, fim - 1);
+}
+
+int main() {
+    char str[] = "recursão";
+    int tamanho = strlen(str);
+    
+    inverter_string(str, 0, tamanho - 1);
+    
+    printf("String invertida: %s\n", str);
+    
+    return 0;
+}
